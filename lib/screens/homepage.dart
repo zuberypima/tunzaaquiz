@@ -59,7 +59,6 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => SingelProduct(id)));
-                      // _confirmBox(context,id);
                     },
                     onDoubleTap: () {
                       provider.addCartPtoductList(Products());
@@ -76,7 +75,18 @@ class _HomePageState extends State<HomePage> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 0,
+                              right: 0,
+                              top: 0,
+                              height: 0,
+                              child: IconButton(
+                                  onPressed: (() {}),
+                                  icon: Icon(
+                                    Icons.shopping_cart_checkout,
+                                    color: Colors.blue,
+                                  )),
+                            ),
+                            Positioned(
+                              left: 30,
                               top: 0,
                               child: Container(
                                 height: 100,
@@ -86,17 +96,18 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 3,
+                            Positioned(
+                              bottom: 30,
+                              child: Text(
+                                snapshot.data[index]['title'],
+                                style: TextStyle(fontSize: 9),
+                              ),
                             ),
-                            Text(
-                              snapshot.data[index]['title'],
-                              style: TextStyle(fontSize: 9),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(snapshot.data[index]['price'].toString()),
+                            Positioned(
+                                bottom: 10,
+                                left: 50,
+                                child: Text(
+                                    snapshot.data[index]['price'].toString())),
                           ],
                         ),
                       ),
