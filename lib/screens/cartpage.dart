@@ -37,10 +37,10 @@ class _CartPageState extends State<CartPage> {
                 itemBuilder: (context, index) {
                   final product = products[index];
                   return ListTile(
-                    leading: Image.network(product.image!),
-                    title: Text(product.title!),
-                    subtitle: Text(product.description!),
-                    trailing: Text('\$${product.price!.toStringAsFixed(2)}'),
+                    // leading: Image.network(product.image.toString()),
+                    title: Text(product.title.toString()),
+                    subtitle: Text(product.description.toString()),
+                    trailing: Text('\$${product.price.toString()}'),
                   );
                 },
               );

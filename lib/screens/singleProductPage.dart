@@ -31,7 +31,7 @@ class SingelProduct extends StatelessWidget {
                 Center(child: Text(product.price.toString())),
                 Center(child: Text(product.description.toString())),
                 Center(
-                  child: Chip(label: Text(product.category.toString())),
+                  // child: Chip(label: Text(product.category.toString())),
                 )
               ],
             );
