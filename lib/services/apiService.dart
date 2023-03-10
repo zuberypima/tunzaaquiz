@@ -37,14 +37,6 @@ class ShopApiService {
     return json.decode(response.body);
   }
 
-// Retrive cartproducts acording to user Id
-  Future getCart(String userId) async {
-    final cartProducts =
-        Uri.parse('https://fakestoreapi.com/products/carts/user/$userId');
-    final response = await http.get(cartProducts);
-    return json.decode(response.body);
-  }
-
   // Shopping Cart functionality
   void addToCart(int productId) async {
     final response = await http.post(
