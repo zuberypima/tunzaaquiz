@@ -27,9 +27,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
               onPressed: (() async{
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: ((context) => CartPage())));
-                final userCart = await ShopApiService().gethUserCart(1);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => CartPage())));
               }),
               icon: Icon(Icons.shopping_cart)),
           IconButton(
