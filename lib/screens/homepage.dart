@@ -26,9 +26,10 @@ class _HomePageState extends State<HomePage> {
         title: Center(child: Text('MyShop')),
         actions: [
           IconButton(
-              onPressed: (() {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => CartPage())));
+              onPressed: (() async{
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: ((context) => CartPage())));
+                final userCart = await ShopApiService().gethUserCart(1);
               }),
               icon: Icon(Icons.shopping_cart)),
           IconButton(
@@ -53,15 +54,15 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
-                      int id = snapshot.data[index]['id'];
+                      // int id = snapshot.data[index]['id'];
 
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SingelProduct(id)));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => SingelProduct(id)));
                     },
                     onDoubleTap: () {
-                      provider.addCartPtoductList(Products());
+                      // provider.addCartPtoductList(Products());
                     },
                     child: Container(
                       height: 600,
@@ -76,12 +77,13 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Positioned(
                               right: 0,
-                              top: 0,
+                              
+                              width: 30,
                               height: 0,
                               child: IconButton(
                                   onPressed: (() {}),
                                   icon: Icon(
-                                    Icons.shopping_cart_checkout,
+                                    Icons.favorite_border,
                                     color: Colors.blue,
                                   )),
                             ),

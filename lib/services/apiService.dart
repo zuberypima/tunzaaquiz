@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:tunzaaquiz/models/cartmodel.dart';
 import 'package:tunzaaquiz/models/product_model.dart';
 
 class ShopApiService {
@@ -86,4 +87,15 @@ void removeFromCart(int cartId) async {
     _items.add(item);
     print(_items);
   }
+  Future<List<Cart>> gethUserCart(int userId) async {
+  final response = await http.get(Uri.parse('https://fakestoreapi.com/carts'));
+
+  if (response.statusCode == 200) {
+    final cartsJson = jsonDecode(response.body) as List;
+    print(cartsJson);
+    return cartsJson.map((cartJson) => Cart.fromJson(cartJson)).toList();
+  } else {
+    throw Exception('Failed to fetch carts');
+  }
+}
 }
